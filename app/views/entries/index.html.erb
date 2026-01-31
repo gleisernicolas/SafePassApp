@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="entries-actions card">
+    <div></div>
+    <%= link_to('+ New Entry', new_entry_path, class: 'btn btn-primary', data: { turbo_frame: 'main-dashboard' }) %>
+  </div>
+  <div id="dashboard" class="card shadow-sm">
+    <div class="entries-card">
+      <div class="entries-card__sidebar">
+        <nav id="entries-list" class="nav flex-column">
+          <% if @entries.any? %>
+            <%= render(@entries) %>
+          <% end %>
+        </nav>
+      </div>
+      <div class="entries-card__main">
+        <%= turbo_frame_tag('main-dashboard') do %>
+          <% if @entries.any? %>
+            <%= render(partial: 'entries/main', locals: { entry: @main_entry } ) %>
+          <% else %>
+            <%= content_tag(:h1, 'No Entries', class: 'h-100 d-flex align-items-center justify-content-center') %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

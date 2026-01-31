@@ -1,0 +1,7 @@
+keys
+Add this entry to the credentials of the target environment: 
+
+active_record_encryption:
+  primary_key: xuJcegNWZMnhrWHGqai1u5aUrZeX5gWD
+  deterministic_key: Rhp2xGd8xwRCwcbz9EPhoezyTOx9xMIJ
+  key_derivation_salt: YZUZaSVCyids0Vd7C8PUTGR1EgkzRmOm

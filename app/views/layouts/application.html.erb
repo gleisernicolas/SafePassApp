@@ -23,9 +23,11 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body>
+  <body class="<%= controller_name %> <%= action_name %>">
     <%= render(partial: 'shared/navbar') %>
-    <%= render(partial: 'shared/flash') %>
+    <div id="flash">
+      <%= render(partial: 'shared/flash') %>
+    </div>
 
     <div class="container">
       <%= yield %>

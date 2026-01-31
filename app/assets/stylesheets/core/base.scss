@@ -7,3 +7,7 @@ a.logo {
   margin-bottom: 0;
   text-decoration: none;
 }
+
+.form-control.input-with-errors{
+  border: 1px solid $danger;
+}

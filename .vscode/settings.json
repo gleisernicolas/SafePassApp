@@ -1,0 +1,12 @@
+{
+  // Disable Cursor AI features for this project
+  "cursor.cpp.enableCursorless": false,
+  "cursor.general.enableAI": false,
+  "aipopup.enabled": false,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  }
+}

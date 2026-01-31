@@ -1,0 +1,40 @@
+<div class='row'>
+  <div class='col'>
+    <div class='card'>
+      <div class='card-body'>
+        <% if @entry.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger" role="alert">
+            <h4> Please fix the <%= pluralize(@entry.errors.count, 'error') %></h4>
+            <ul>
+              <% @entry.errors.each do |error| %>
+                <li>
+                  <%= error.full_message %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+        <%= form_with(model: @entry) do |form| %>
+          <div class="form-floating mb-3">
+            <%= form.text_field(:name, placeholder: "Name", class: 'form-control')%>
+            <%= form.label (:name) %>
+          </div>
+          <div class="form-floating mb-3">
+            <%= form.text_field(:url, placeholder: "URL", class: 'form-control')%>
+            <%= form.label (:url) %>
+          </div>
+            <div class="form-floating mb-3">
+            <%= form.text_field(:username, placeholder: "Username", class: 'form-control')%>
+            <%= form.label (:username) %>
+          </div>
+          <div class="form-floating mb-3">
+            <%= form.text_field(:password, placeholder: "********", class: 'form-control')%>
+            <%= form.label (:password) %>
+          </div>
+          <%= form.submit("Create new entry", class: "btn btn-primary") %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+      

@@ -1,0 +1,7 @@
+<%= turbo_frame_tag('main-dashboard') do %>
+  <div class="d-flex align-items-center justify-content-between">
+    <h1> New Entry </h1>
+    <%= link_to('Cancel', entries_path, class: 'btn btn-sm btn-outline-danger') %>
+  </div>
+  <%= render(partial: 'form') %>
+<% end %>
