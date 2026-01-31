@@ -128,16 +128,34 @@ http://localhost:3000
 
 ## Running Tests
 
+This project uses **RSpec** with FactoryBot, Faker, and Shoulda Matchers.
+
 ```bash
 # Run all tests
-rails test
+bundle exec rspec
+
+# Run with documentation format
+bundle exec rspec --format documentation
 
 # Run specific test file
-rails test test/models/entry_test.rb
+bundle exec rspec spec/models/entry_spec.rb
 
-# Run with verbose output
-rails test -v
+# Run specific test by line number
+bundle exec rspec spec/models/entry_spec.rb:25
 ```
+
+### Test Coverage
+
+- **Model specs**: User and Entry models with validations, associations, and encryption
+- **Request specs**: EntriesController, PagesController, API controllers
+- **Service specs**: JsonWebToken encoding/decoding
+
+### Testing Libraries
+
+- **RSpec**: Testing framework
+- **FactoryBot**: Test data factories
+- **Faker**: Realistic fake data generation
+- **Shoulda Matchers**: One-liner tests for common Rails patterns
 
 ## Project Structure
 
