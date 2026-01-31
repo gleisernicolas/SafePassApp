@@ -7,4 +7,11 @@ Rails.application.routes.draw do
   get "about", to: "pages#about"
 
   resources :entries
+
+  namespace :api do
+    namespace :v1 do
+      post :auth, to: "auth#create"
+      resources :entries
+    end
+  end
 end

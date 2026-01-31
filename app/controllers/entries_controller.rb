@@ -7,8 +7,21 @@ class EntriesController < ApplicationController
   end
 
   def index
-    @entries = current_user.entries.order(:name)
+    @entries = current_user.entries.search(params[:name]).order(:name)
     @main_entry = @entries.first
+
+    return unless params[:name].present?
+
+    if @entries.length == 1
+      render turbo_stream: [
+        turbo_stream.update("main-dashboard", partial: "entries/main", locals: {
+          entry: @entries.first
+        }),
+        turbo_stream.update("entries-list", partial: "entries/entry", locals: {
+          entry: @entries.first
+        })
+      ]
+    end
   end
 
   def create
